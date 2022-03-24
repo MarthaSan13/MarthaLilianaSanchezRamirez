@@ -62,3 +62,14 @@
   color: wheat;
   font-size: 2em;
 }
+.itemListContainer{
+  background-color: white;
+  border-radius: 2em;
+  color: #d30b7a;
+  font-size: 14px;
+  width: 90%;
+  padding: 20px;
+}
+.itemListTitle{
+  padding: 20px;
+}
