@@ -73,3 +73,18 @@
 .itemListTitle{
   padding: 20px;
 }
+.itemCont{
+  padding: 20px;
+}
+
+.cantidad{
+  padding: 20px;
+  font-size: 2em;
+}
+.stockAviso{
+  padding: 15px;
+}
+.buttonCart{
+  background-color: #d30b7a80 !important;
+    border-color: #8c0851  !important;
+}
