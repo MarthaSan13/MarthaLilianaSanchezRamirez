@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
-const ItemCount = ({ stock = 10 }) => {
+const ItemCount = ({ productStock }) => {
+
     const [ItemsCantidad, setItemsCantidad] = useState(1);
+    const [setup, setSetup] = useState(0);
 
     const setMinStock = (cantidad) => {
         if (cantidad >= 0) {
@@ -15,20 +17,29 @@ const ItemCount = ({ stock = 10 }) => {
         }
     }
     const setMaxStock = (cantidad) => {
-        if (cantidad <= stock) {
+        if (cantidad <= productStock) {
             setItemsCantidad(cantidad)
         }
     }
 
+    useEffect(() => {
+        console.log("se ejecuto el useEffect");
+
+        setTimeout(() => {
+            setSetup(setup + 1)
+        }, 2000)
+
+    }, [ItemsCantidad])
+
     return (
         <Fragment>
             <div className='itemCont'>
-                <h3>Item 1</h3>
+
 
                 <Button className='buttonCart' onClick={() => setMinStock(ItemsCantidad - 1)}><FontAwesomeIcon icon={faMinus} /> </Button>{' '}
                 <span className='cantidad'>{ItemsCantidad}</span>
                 <Button className='buttonCart' onClick={() => setMaxStock(ItemsCantidad + 1)}><FontAwesomeIcon icon={faPlus} /></Button>{' '}
-                <div className='stockAviso'>Cantidad disponible: {stock}</div>
+                <div className='stockAviso'>Cantidad disponible: {productStock}</div>
                 <Button className='buttonCart'> Agregar al Carrito </Button>
             </div>
         </Fragment>
