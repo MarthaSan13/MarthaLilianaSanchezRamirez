@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import Test from './components/Test';
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <header className="App-header">
         <Navbar />
         <ItemListContainer mensaje="Lista de Productos" />
+        <ItemDetailContainer />
       </header>
 
     </div>

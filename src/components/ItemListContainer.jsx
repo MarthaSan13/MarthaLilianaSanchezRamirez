@@ -8,28 +8,34 @@ const productosIniciales = [
     { id: "104", title: "Moringa", description: "En polvo, Producto orgánico", price: "4Uds", pictureUrl: "https://m.media-amazon.com/images/I/71Wl3rUxkDL._AC_SY606_.jpg", stock: 5 }
 
 ]
+/*
+const getProductDetail = (id) => {
+    return fetch(`https://api.mercadolibre.com/items/${id}`)
+        .then(data => data.json())
+}*/
+
 const ItemListContainer = ({ mensaje }) => {
 
     const [productos, setProductos] = useState([]);
-    const [cargador, setCargador] = useState("");
+    const [cargador, setCargador] = useState(true);
 
-    const promesa = new Promise((res, rej) => {
+    /* const promesa2 = () => {
+         return fetch(`https://fakestoreapi.com/products`)
+             .then(data => data.json())
+     }*/
 
-        setTimeout(() => {
-            res(productosIniciales);
-        }, 3000)
-
-    });
-
+    const promesa2 = fetch("https://fakestoreapi.com/products");
     useEffect(() => {
-        setCargador("Hoola estoy cargando :)");
-
-        promesa.then((productos) => {
-            setProductos(productos);
-            //console.log(promesa)
-            setCargador(false);
+        promesa2.then((data) => {
+            const dataParseada = data.json();
+            // console.log(dataParseada);
+            return dataParseada;
         })
-            .catch(() => {
+            .then(productos => {
+                console.log(productos);
+                setProductos(productos);
+                setCargador(false);
+            }).catch(() => {
                 console.log("Algo va mal")
             })
     }, []);
@@ -37,8 +43,9 @@ const ItemListContainer = ({ mensaje }) => {
     return (
         <Fragment>
             <div className='itemListContainer'>
+                <p className='cargador' > {cargador ? "Hey, momento que estoy cargando :D" : null} </p>
                 <h3 className='itemListTitle'>¡Ofertas de la semana!</h3>
-                <h3>{cargador}</h3>
+
                 <div className=''>{mensaje}</div>
                 <ItemList productos={productos} />
 

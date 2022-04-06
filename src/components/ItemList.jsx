@@ -8,14 +8,16 @@ const ItemList = ({ productos }) => {
 
     return (
         <Fragment>
-            <div className='itemsList'>
-                {productos.map(producto => {
-                    return <Item productId={producto.id} productTitle={producto.title} productDescription={producto.description} productPrice={producto.price} productPictureUrl={producto.pictureUrl} productStock={producto.stock} />
-                })}
-            </div>
+
+            {productos.map((producto) => (
+                <div className='itemsList' key={producto.id}>
+                    <Item key={producto.id} producto={producto} />
+                </div>
+            ))}
+
         </Fragment>
     )
 
 }
 
-export default ItemList;
+export default ItemList;    

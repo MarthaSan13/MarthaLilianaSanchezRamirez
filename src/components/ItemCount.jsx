@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
-const ItemCount = ({ productStock }) => {
+const ItemCount = ({ stock }) => {
 
     const [ItemsCantidad, setItemsCantidad] = useState(1);
     const [setup, setSetup] = useState(0);
@@ -17,7 +17,7 @@ const ItemCount = ({ productStock }) => {
         }
     }
     const setMaxStock = (cantidad) => {
-        if (cantidad <= productStock) {
+        if (cantidad <= stock) {
             setItemsCantidad(cantidad)
         }
     }
@@ -39,7 +39,7 @@ const ItemCount = ({ productStock }) => {
                 <Button className='buttonCart' onClick={() => setMinStock(ItemsCantidad - 1)}><FontAwesomeIcon icon={faMinus} /> </Button>{' '}
                 <span className='cantidad'>{ItemsCantidad}</span>
                 <Button className='buttonCart' onClick={() => setMaxStock(ItemsCantidad + 1)}><FontAwesomeIcon icon={faPlus} /></Button>{' '}
-                <div className='stockAviso'>Cantidad disponible: {productStock}</div>
+                <div className='stockAviso'>Cantidad disponible: {stock}</div>
                 <Button className='buttonCart'> Agregar al Carrito </Button>
             </div>
         </Fragment>
