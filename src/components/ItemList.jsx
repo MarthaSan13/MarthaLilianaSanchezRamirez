@@ -10,7 +10,7 @@ const ItemList = ({ productos }) => {
         <Fragment>
 
             {productos.map((producto) => (
-                <div className='itemsList' key={producto.id}>
+                <div className='itemsList itemsList--animated' key={producto.id}>
                     <Item key={producto.id} producto={producto} />
                 </div>
             ))}

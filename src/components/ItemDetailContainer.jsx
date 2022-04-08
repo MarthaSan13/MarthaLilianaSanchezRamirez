@@ -1,37 +1,35 @@
 import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
-    const [id, setId] = useState([]);
-    const [producto, setProducto] = useState([]);
+    const [producto, setProducto] = useState({});
     const [cargador, setCargador] = useState(true);
+    const [error, setError] = useState(false);
 
-    const promesa3 = fetch(`https://fakestoreapi.com/products/1`);
-
+    const { id } = useParams();
 
     useEffect(() => {
-        promesa3.then((data) => {
-            const dataParseada = data.json();
-            console.log(dataParseada + "hiiiii");
-            return dataParseada;
-        })
-            .then(producto => {
-                const myJSON = JSON.stringify(producto);
-                console.log(myJSON + "yeapp");
-                console.log(producto + "soy el producto");
-                setProducto(myJSON);
-                // setCargador(false);
-            }).catch(() => {
-                console.log("Algo va mallllll")
-            })
-    }, []);
+        const URL = (`https://fakestoreapi.com/products/${id}`);
+
+        const getitem = async () => {
+            try {
+                const response = await fetch(URL);
+                const data = await response.json();
+                setProducto({ ...data, stock: Math.floor((Math.random() * (100 - 1 + 1)) + 1) });
+            } catch {
+                setError(true);
+            } finally {
+                setCargador(false);
+            }
+        };
+        getitem();
+    }, [id]);
 
     return (
         <div className="item-detail-container">
-            <ItemDetail producto={producto} />
-
+            {cargador ? <p className='cargador' >"Hey, momento que estoy cargando :D"</p> : <ItemDetail producto={producto} />}
         </div>
     )
 }

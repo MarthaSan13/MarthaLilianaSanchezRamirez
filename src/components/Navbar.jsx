@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import logo from '../logo.svg';
+import logo from '../assets/images/snakeMid.png';
 import CartWidget from './Cartwidget';
 
 const Navbar = () => {
 
     return (
         <Fragment>
-            <navbar className='navlist'>
+            <nav className='navlist'>
                 <ul>
                     <img src={logo} className="App-logo" alt="logo" />
                     <li>Home</li>
@@ -15,7 +15,7 @@ const Navbar = () => {
                     <li>Tu cuenta</li>
                     <CartWidget />
                 </ul>
-            </navbar>
+            </nav>
 
         </Fragment>
     )

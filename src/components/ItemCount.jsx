@@ -23,7 +23,7 @@ const ItemCount = ({ stock }) => {
     }
 
     useEffect(() => {
-        console.log("se ejecuto el useEffect");
+        //console.log("se ejecuto el useEffect");
 
         setTimeout(() => {
             setSetup(setup + 1)
