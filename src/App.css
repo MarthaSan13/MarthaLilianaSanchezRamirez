@@ -196,3 +196,29 @@ p {
   justify-content: space-between;
   padding: 20px;
 }
+
+.categoriasNav {
+  display: flex;
+}
+
+.myLink {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.categoriesContainer {
+  display: flex;
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: azure;
+  border-radius: 1em;
+  width: 20%;
+  height: 30vh;
+  margin: 20px;
+  color: #650038;
+}
