@@ -8,7 +8,7 @@ import Category from './components/Category';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Home from './components/Home';
-import Test from './components/Test';
+import Cart from './components/Cart';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +20,7 @@ function App() {
             <Route path="categories" element={<Categories />} />
             <Route path="/category/:unacategory" element={<Category />} />
             <Route path="/producto/:id" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
 
 
