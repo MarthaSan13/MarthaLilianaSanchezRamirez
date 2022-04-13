@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { uid } from "uid";
 
 const Categories = () => {
 
@@ -17,7 +18,7 @@ const Categories = () => {
                 const response = await fetch(URL);
                 const data = await response.json();
                 setCategories(data);
-                console.log(typeof data + " ,data");
+                //console.log(typeof data + " ,data");
             } catch {
                 setError(true);
             } finally {

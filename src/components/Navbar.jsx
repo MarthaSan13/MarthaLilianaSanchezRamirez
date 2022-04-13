@@ -5,6 +5,7 @@ import logo from '../assets/images/snakeMid.png';
 import { Link, NavLink } from 'react-router-dom'
 import CartWidget from './Cartwidget';
 import Categories from './Categories';
+import Test from './Test';
 
 const Navbar = () => {
 
