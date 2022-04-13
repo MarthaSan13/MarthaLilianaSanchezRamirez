@@ -11,14 +11,24 @@ import { useNavigate } from 'react-router-dom';
 const ItemDetail = ({ producto }) => {
     const { id, title, description, price, image, stock } = producto
     const [ItemsCantidad, setItemsCantidad] = useState(0);
+    const [showFinalizar, setShowFinalizar] = useState(false);
 
-    const addItem = (producto, ItemsCantidad) => {
-        console.log("hola somos los productos " + producto + " y soy la cantidad a comprar " + ItemsCantidad)
-    }
     const navigate = useNavigate()
     const goToCart = () => {
         navigate(`/cart`)
     }
+
+    const onAddCart = (ItemsCantidad) => {
+        if (ItemsCantidad > 0) {
+            setItemsCantidad(ItemsCantidad)
+            console.log(ItemsCantidad)
+            setShowFinalizar(true);
+        } else {
+            console.log("Oh nou nou nou nou")
+            alert("Indica la cantidad que deseas comprar");
+        }
+    }
+
     return (
         <Fragment>
             <div className='itemDetail'>
@@ -27,9 +37,8 @@ const ItemDetail = ({ producto }) => {
                     <p className='itemTittle'>{title}</p>
                     <p className='itemText'>Precio: {producto.price}</p>
                     <p className='itemText'> <strong> Características del producto:</strong> {description}</p>
-                    <ItemCount stock={stock} ItemsCantidad={ItemsCantidad} setItemsCantidad={setItemsCantidad} />
-                    <Button className='buttonCart' onClick={() => addItem(producto, ItemsCantidad)}> Agregar al Carrito </Button>
-                    <Button className='buttonCart' onClick={() => goToCart()}>Finalizar compra</Button>
+                    <ItemCount stock={stock} onAddCart={onAddCart} />
+                    {showFinalizar ? <Button className='buttonCart' onClick={() => goToCart()}>Finalizar compra</Button> : null}
                 </div>
             </div>
         </Fragment>
