@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ItemListContainer from './ItemListContainer';
+import ItemListContainer from '../containers/ItemListContainer';
 import { useParams } from 'react-router-dom';
 
 const Category = () => {

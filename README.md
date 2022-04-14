@@ -1,1 +1,1 @@
-Esta es una aplicación de market place, que usa la FakeStoreApi para mostrar un compendio de productos, sus categorias y detalles.
+Esta es una aplicación de market place creada en React, en su versión 17, que aplica recursos como useState, useEffect, RouterDom y hace llamdos a "FakeStoreApi" para mostrar un compendio de productos, sus categorias y detalles, seleccionar unas caracteristicas de dichos productos y emular una compra.

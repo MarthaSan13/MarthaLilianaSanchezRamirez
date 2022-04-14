@@ -5,32 +5,33 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Categories from './components/Categories';
 import Category from './components/Category';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemDetailContainer from './containers/ItemDetailContainer';
 import Home from './components/Home';
 import Cart from './components/Cart';
 import Test from './components/Test';
+import CustomProvider from "./contexts/CartContext"
 
 function App() {
+
   return (
     <BrowserRouter>
+
       <div className="App">
         <header className="App-header">
-          <Navbar />
-
-
-          <Routes>
-            <Route path="/" element={<Home mensaje={"Lista de Productos"} />} />
-            <Route path="categories" element={<Categories />} />
-            <Route path="/category/:unacategory" element={<Category />} />
-            <Route path="/producto/:id" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<Cart />} />
-
-          </Routes>
-
+          <CustomProvider>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home mensaje={"Lista de Productos"} />} />
+              <Route path="categories" element={<Categories />} />
+              <Route path="/category/:unacategory" element={<Category />} />
+              <Route path="/producto/:id" element={<ItemDetailContainer />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </CustomProvider>
         </header>
 
       </div>
+
     </BrowserRouter>
   );
 }
