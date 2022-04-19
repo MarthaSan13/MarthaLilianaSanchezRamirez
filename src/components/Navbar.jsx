@@ -14,7 +14,11 @@ const Navbar = () => {
             <ul>
                 <Link to={`/`}> <img src={logo} className="App-logo" alt="logo" /></Link>
                 <li><Link className='myLink' to={`/`}>Home</Link></li>
-                <li><Link className='myLink' to={`/categories`}>Categorias</Link>  </li>
+                {/*   <li><Link className='myLink' to={`/categories`}>Categorias</Link>  </li> */}
+                <li><Link className='myLink' to={`/category/electronics`}>Electronics</Link>  </li>
+                <li><Link className='myLink' to={`/category/jewelery`}>Jewelery</Link>  </li>
+                <li><Link className='myLink' to={`/category/men's clothing`}>Men's clothing</Link>  </li>
+                <li><Link className='myLink' to={`/category/women's clothing`}>Women's clothing</Link>  </li>
                 <li>Destacados</li>
                 <li>Tu cuenta</li>
                 <Link className='myLink' to={`/cart`}><CartWidget /></Link>

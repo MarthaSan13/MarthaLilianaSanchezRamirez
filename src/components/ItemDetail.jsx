@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -7,11 +7,13 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import ItemCount from './ItemCount';
 import { useNavigate } from 'react-router-dom';
+import { contexto } from '../contexts/CartContext';
 
 const ItemDetail = ({ producto }) => {
     const { id, title, description, price, image, stock } = producto
     const [ItemsCantidad, setItemsCantidad] = useState(0);
     const [showFinalizar, setShowFinalizar] = useState(false);
+    const { addProducto } = useContext(contexto);
 
     const navigate = useNavigate()
     const goToCart = () => {
@@ -20,8 +22,9 @@ const ItemDetail = ({ producto }) => {
 
     const onAddCart = (ItemsCantidad) => {
         if (ItemsCantidad > 0) {
+            addProducto(producto, ItemsCantidad);
             setItemsCantidad(ItemsCantidad)
-            console.log(ItemsCantidad)
+            console.log("Agregaste " + ItemsCantidad + " articulos al carrito")
             setShowFinalizar(true);
         } else {
             console.log("Oh nou nou nou nou")

@@ -4,12 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Categories from './components/Categories';
-import Category from './components/Category';
 import ItemDetailContainer from './containers/ItemDetailContainer';
 import Home from './components/Home';
 import Cart from './components/Cart';
-import Test from './components/Test';
 import CustomProvider from "./contexts/CartContext"
+import ItemListContainer from './containers/ItemListContainer';
 
 function App() {
 
@@ -21,9 +20,10 @@ function App() {
           <CustomProvider>
             <Navbar />
             <Routes>
-              <Route path="/" element={<Home mensaje={"Lista de Productos"} />} />
+              <Route path="/" element={<Home mensaje={""} />} />
               <Route path="categories" element={<Categories />} />
-              <Route path="/category/:unacategory" element={<Category />} />
+              {/* <Route path="/category/:unacategory" element={<Category />} />  */}
+              <Route path="/category/:unacategory" element={<ItemListContainer />} />
               <Route path="/producto/:id" element={<ItemDetailContainer />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>

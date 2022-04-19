@@ -77,6 +77,21 @@ p {
 .cartshop {
   color: wheat;
   font-size: 2em;
+  position: relative;
+}
+
+.cartshopNumber {
+  color: rgb(255, 255, 255);
+  margin-left: 6px;
+  font-weight: bold;
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  font-size: 0.6rem;
+  background-color: rgb(101 0 56);
+  padding: 2px 4px 2px 5px;
+  padding: 5px;
+  border-radius: 1em;
 }
 
 .itemListContainer {
@@ -221,4 +236,12 @@ p {
   height: 30vh;
   margin: 20px;
   color: #650038;
+}
+
+.muestraItems {
+  display: flex;
+  flex-direction: row;
+  color: #d30b7a;
+  font-size: 18px;
+  gap: 1em;
 }
