@@ -166,6 +166,11 @@ p {
   border-color: #8c0851 !important;
 }
 
+.buttonCart--Dw {
+  position: absolute;
+  top: 90%;
+}
+
 .itemImg {
   width: 60%;
 }
@@ -221,6 +226,14 @@ p {
   text-decoration: none;
 }
 
+.myLink--cart {
+  color: #6e1679;
+  font-size: 40px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: -9px 10px 22px 2px rgb(0 0 0 / 36%);
+}
+
 .categoriesContainer {
   display: flex;
 }
@@ -241,7 +254,21 @@ p {
 .muestraItems {
   display: flex;
   flex-direction: row;
-  color: #d30b7a;
+  color: #650038;
+  background-color: azure;
+  padding: 10px;
   font-size: 18px;
   gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 5px;
+}
+
+.imgOnCart {
+  width: 5%;
+}
+
+.titleOnCart {
+  width: 50%;
 }

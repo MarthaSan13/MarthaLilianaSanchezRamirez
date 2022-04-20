@@ -9,18 +9,12 @@ import { contexto } from '../contexts/CartContext';
 
 const Cart = () => {
     const [productos, setProductos] = useState([]);
-    const { items, eliminarProducto, limpiarProductos, buscarProducto } = useContext(contexto);
+    const { items, eliminarProducto, limpiarProductos } = useContext(contexto);
 
-    console.log("son los " + items);
-
-    //buscarProducto();
-
-    const borradorHijo = (id) => {
-        console.log("eliminar " + id);
-        eliminarProducto(id)
+    const borradorHijo = (idx) => {
+        eliminarProducto(idx)
     }
     const borrarTodo = () => {
-        console.log("eliminar tooodo ");
         limpiarProductos()
     }
 
@@ -28,32 +22,24 @@ const Cart = () => {
 
     return (
         <Fragment>
-
             {totalItems
-                ? (
-
+                ?
+                (
                     items.map((item) => (
-                        <>
-                            <div className='muestraItems' key={item.id}>
-                                <p> {item.id} </p>
-                                <p> {item.title} </p>
-                                <p> Precio:{item.price} </p>
-                                <p> Cantidad: {item.ItemsCantidad} </p>
-                                <button onClick={() => borradorHijo(item.id)}>Eliminar</button>
-                            </div>
-
-                        </>
-                    ))
-
+                        <div className='muestraItems' key={item.id}>
+                            <img className='imgOnCart' src={item.image} />
+                            <p className='titleOnCart'> {item.title} </p>
+                            <p> Precio: {item.price} </p>
+                            <p> Cantidad: {item.ItemsCantidad} </p>
+                            <Button className='buttonCart' onClick={() => borradorHijo(item.id)}>Eliminar</Button >
+                        </div>
+                    )
+                    )
 
                 )
-                : <Link className='myLink' to={`/`}>Adiciona productos</Link>
-            }
-
-            < button onClick={() => borrarTodo()}>Eliminar todo</button>
-
-
-        </Fragment>
+                : (<Link className='myLink myLink--cart' to={`/`}>Adiciona productos</Link>)
+            } < Button className='buttonCart buttonCart--Dw' onClick={() => borrarTodo()}>Eliminar todo</Button>
+        </Fragment >
 
 
 
