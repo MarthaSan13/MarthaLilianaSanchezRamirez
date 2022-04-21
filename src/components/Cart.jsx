@@ -8,11 +8,7 @@ import { uid } from "uid";
 import { contexto } from '../contexts/CartContext';
 
 const Cart = () => {
-
     const { items, eliminarProducto, limpiarProductos } = useContext(contexto);
-    const [productos, setProductos] = useState([]);
-    const [total, setTotal] = useState(0);
-    ///  const { id, title, description, price, image, ItemsCantidad } = items
 
     const borradorHijo = (idx) => {
         eliminarProducto(idx)
