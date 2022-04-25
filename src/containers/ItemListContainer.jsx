@@ -1,30 +1,51 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import { getDocs, collection, query, where } from "firebase/firestore";
 import ItemList from "../components/ItemList";
 import { useParams } from 'react-router-dom';
+import { db } from "../firebase/firebase";
 
 const ItemListContainer = () => {
     const [productos1, setProductos1] = useState([]);
     const [cargador, setCargador] = useState(true);
 
     const { unacategory } = useParams();
-    //console.log(unacategory);
+
     useEffect(() => {
         if (unacategory) {
-            fetch(`https://fakestoreapi.com/products/category/${unacategory}`)
-                .then(data => data.json())
-                .then(results => setProductos1(results))
-                .catch(error => console.log(error))
+            const productosCollection = collection(db, "productos");
+            const myQuery = query(productosCollection, where("category", "==", `${unacategory}`))
+            getDocs(myQuery)
+                .then((result) => {
+                    const docs = result.docs;
+                    const lista = docs.map(producto => {
+                        const id = producto.id
+                        const product = {
+                            id, ...producto.data()
+                        }
+                        return product;
+                    })
+                    setProductos1(lista)
+                })
                 .finally(() => setCargador(false))
+
         } else {
-            fetch("https://fakestoreapi.com/products")
-                .then(data => data.json())
-                .then(results => setProductos1(results))
-                .catch(error => console.log(error))
+            const productosCollection = collection(db, "productos");
+            getDocs(productosCollection)
+                .then((result) => {
+                    const docs = result.docs;
+                    const lista = docs.map(producto => {
+                        const id = producto.id
+                        const product = {
+                            id, ...producto.data()
+                        }
+                        return product;
+                    })
+                    setProductos1(lista)
+                })
                 .finally(() => setCargador(false))
         }
     }, [unacategory]);
 
-    //console.log(productos1);
     return (
         <Fragment>
             <h3 className='itemListTitle'>Lista de Productos</h3>

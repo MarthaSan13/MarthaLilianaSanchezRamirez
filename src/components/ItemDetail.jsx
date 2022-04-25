@@ -2,9 +2,6 @@ import React, { Fragment, useContext } from 'react';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import ItemCount from './ItemCount';
 import { useNavigate } from 'react-router-dom';
 import { contexto } from '../contexts/CartContext';
@@ -38,7 +35,7 @@ const ItemDetail = ({ producto }) => {
                 <div className='itemImgContainer'><img className='itemImg' src={image} /></div>
                 <div className='itemDescrip'>
                     <p className='itemTittle'>{title}</p>
-                    <p className='itemText'>Precio: {producto.price}</p>
+                    <p className='itemText'>Precio: {price}</p>
                     <p className='itemText'> <strong> Características del producto:</strong> {description}</p>
                     <ItemCount stock={stock} onAddCart={onAddCart} />
                     {showFinalizar ? <Button className='buttonCart' onClick={() => goToCart()}>Finalizar compra</Button> : null}

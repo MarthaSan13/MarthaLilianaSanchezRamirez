@@ -31,7 +31,6 @@ const CustomProvider = ({ children }) => {
     const eliminarProducto = (idx) => {
         const filtrado = items.filter(item => item.id !== idx);
         setItems(filtrado);
-        console.log(filtrado + " elque voa eliminar");
     };
 
     const getCantidadProductos = () => {

@@ -13,13 +13,6 @@ import { useNavigate } from 'react-router-dom';
 const Item = ({ producto }) => {
     const { id, title, description, price, image, stock } = producto
 
-    //const { usuarios, addUsuario } = useContext(contexto);
-    //console.log(usuarios);
-    /*
-        const manejarClick = () => {
-            addUsuario();
-        }*/
-
     const navigate = useNavigate()
     const goToProduct = () => {
         navigate(`/producto/${id}`)
@@ -32,7 +25,6 @@ const Item = ({ producto }) => {
                 <div><img className='itemImg' src={image} /> </div>
                 <div><p className='itemText'> ${price}</p></div>
                 <Button className='buttonCart' variant="primary" onClick={() => goToProduct()}>Ver detalle del producto</Button>
-                { /*<button onClick={manejarClick}>agrega</button>*/}
             </div>
 
 

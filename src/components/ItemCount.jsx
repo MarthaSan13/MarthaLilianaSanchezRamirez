@@ -8,7 +8,7 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 const ItemCount = ({ stock, onAddCart }) => {
 
-    const [ItemsCantidad, setItemsCantidad] = useState(0);
+    const [ItemsCantidad, setItemsCantidad] = useState(1);
     const [setup, setSetup] = useState(0);
 
     const setMinStock = (cantidad) => {

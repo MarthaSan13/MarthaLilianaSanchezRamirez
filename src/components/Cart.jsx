@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import Test from './Test';
-import { uid } from "uid";
 import { contexto } from '../contexts/CartContext';
 
 const Cart = () => {
@@ -35,24 +33,21 @@ const Cart = () => {
         return (item.price * item.ItemsCantidad)
     }
     const totalXitem = items.map(regresarTotal);
-    console.log(totalXitem);
 
     const totalGlobal = totalXitem.reduce(
         (previousScore, currentScore, index) => previousScore + currentScore, 0);
-    console.log(totalGlobal);
 
     return (
         <Fragment>
-
             {totalItems
                 ?
                 <>
                     {elMap}
                     <p className='TotalOrden'><strong>Total orden: </strong>{totalGlobal.toFixed(2)} </p>
+                    < Button className='buttonCart' onClick={() => borrarTodo()}>Eliminar todo</Button>
                 </>
-
                 : (<Link className='myLink myLink--cart' to={`/`}>Adiciona productos</Link>)
-            } < Button className='buttonCart' onClick={() => borrarTodo()}>Eliminar todo</Button>
+            }
         </Fragment >
 
 
