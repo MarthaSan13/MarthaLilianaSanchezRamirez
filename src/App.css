@@ -280,3 +280,8 @@ p {
 .TotalOrden {
   color: black;
 }
+
+.formUser {
+  display: flex;
+  flex-direction: column;
+}
