@@ -9,7 +9,6 @@ const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({});
     const [cargador, setCargador] = useState(true);
     const [error, setError] = useState(false);
-
     const { id } = useParams();
 
     useEffect(() => {

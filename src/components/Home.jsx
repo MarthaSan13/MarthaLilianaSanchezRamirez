@@ -6,9 +6,7 @@ const Home = ({ mensaje }) => {
     return (
         <Fragment>
             <div className='itemMessage'>{mensaje}</div>
-            <div className='itemListContainer'>
-                <ItemListContainer />
-            </div>
+            <ItemListContainer />
         </Fragment>
     )
 

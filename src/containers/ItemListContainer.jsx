@@ -48,7 +48,7 @@ const ItemListContainer = () => {
 
     return (
         <Fragment>
-            <h3 className='itemListTitle'>Lista de Productos</h3>
+            <h3 className='itemListTitle'>Market Place</h3>
             <div className='itemListContainer'>
 
                 {cargador

@@ -30,9 +30,7 @@ const ItemCount = ({ stock, onAddCart }) => {
     }, [ItemsCantidad])
 
     const agregarBtn = (ItemsCantidad) => {
-        //ItemsCantidad > 0 ? 
         onAddCart(ItemsCantidad)
-        // : null
     }
 
     return (

@@ -21,10 +21,8 @@ const ItemDetail = ({ producto }) => {
         if (ItemsCantidad > 0) {
             addProducto(producto, ItemsCantidad);
             setItemsCantidad(ItemsCantidad)
-            console.log("Agregaste " + ItemsCantidad + " articulos al carrito")
             setShowFinalizar(true);
         } else {
-            console.log("Oh nou nou nou nou")
             alert("Indica la cantidad que deseas comprar");
         }
     }

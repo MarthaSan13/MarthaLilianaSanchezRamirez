@@ -9,20 +9,15 @@ const CartWidget = () => {
     const totalItems = items.length > 0;
 
     return (
-        <Fragment>
-            <div className='cartshop'>
-                <FontAwesomeIcon icon={faShoppingCart} />
+        <div className='cartshop'>
+            <FontAwesomeIcon icon={faShoppingCart} />
 
-                {totalItems
-                    ? <div className='cartshopNumber'>{items.length}</div>
-                    : null
-                }
-
-
-            </div>
-        </Fragment>
+            {totalItems
+                ? <div className='cartshopNumber'>{items.length}</div>
+                : null
+            }
+        </div>
     )
-
 }
 
 export default CartWidget;

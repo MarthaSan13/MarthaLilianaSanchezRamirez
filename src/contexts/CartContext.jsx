@@ -9,8 +9,16 @@ const CustomProvider = ({ children }) => {
     const [items, setItems] = useState([]);
     const [nuevoItem, setNuevoItem] = useState([]);
     const [encontrado, setEncontrado] = useState({});
+    const [compradorFinal, setCompradorFinal] = useState({});
+    const [enviado, setEnviado] = useState(0);
 
+    const addComprador = (comprador) => {
+        setCompradorFinal(comprador)
+    };
 
+    const addEnviado = () => {
+        setEnviado(1)
+    };
     const addProducto = (producto, ItemsCantidad) => {
         const nuevoItem = {
             ...producto, ItemsCantidad
@@ -28,6 +36,7 @@ const CustomProvider = ({ children }) => {
         }
     };
 
+
     const eliminarProducto = (idx) => {
         const filtrado = items.filter(item => item.id !== idx);
         setItems(filtrado);
@@ -41,7 +50,7 @@ const CustomProvider = ({ children }) => {
         setItems([])
     }
     return (
-        < Provider value={{ items, addProducto, eliminarProducto, getCantidadProductos, limpiarProductos }}> {children} </Provider >
+        < Provider value={{ items, compradorFinal, enviado, addEnviado, addProducto, addComprador, eliminarProducto, getCantidadProductos, limpiarProductos }}> {children} </Provider >
     )
 };
 
