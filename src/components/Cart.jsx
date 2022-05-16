@@ -110,9 +110,8 @@ const Cart = () => {
                     }
                 </div>
                 <div className='itemsContainer'>
-                    {success ?
+                    {success &&
                         <p className='textDataMain' >Tu compra fue realizada con exito, tu Id de compra es: {idVenta} </p>
-                        : null
                     }
                 </div>
             </Fragment >

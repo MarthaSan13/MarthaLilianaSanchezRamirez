@@ -404,6 +404,12 @@ p {
   padding: 10px;
 }
 
+.textWarning {
+  font-size: 18px;
+  color: red;
+  font-style: italic;
+}
+
 .itemTittle {
   font-size: 1.3rem;
   color: #5a0835;

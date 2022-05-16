@@ -10,6 +10,7 @@ const ItemDetail = ({ producto }) => {
     const { id, title, description, price, image, stock } = producto
     const [ItemsCantidad, setItemsCantidad] = useState(0);
     const [showFinalizar, setShowFinalizar] = useState(false);
+    const [showAgregarItem, setShowAgregarItem] = useState();
     const { addProducto } = useContext(contexto);
 
     const navigate = useNavigate()
@@ -23,7 +24,8 @@ const ItemDetail = ({ producto }) => {
             setItemsCantidad(ItemsCantidad)
             setShowFinalizar(true);
         } else {
-            alert("Indica la cantidad que deseas comprar");
+            // alert("Indica la cantidad que deseas comprar");
+            setShowAgregarItem(<p className='textWarning'>"Indica la cantidad que deseas comprar"</p>);
         }
     }
 
@@ -36,7 +38,7 @@ const ItemDetail = ({ producto }) => {
                     <p className='itemText'>Precio: {price}</p>
                     <p className='itemText'> <strong> Características del producto:</strong> {description}</p>
                     <ItemCount stock={stock} onAddCart={onAddCart} />
-                    {showFinalizar ? <Button className='buttonCart' onClick={() => goToCart()}>Finalizar compra</Button> : null}
+                    {showFinalizar ? <Button className='buttonCart' onClick={() => goToCart()}>Finalizar compra</Button> : showAgregarItem}
                 </div>
             </div>
         </Fragment>

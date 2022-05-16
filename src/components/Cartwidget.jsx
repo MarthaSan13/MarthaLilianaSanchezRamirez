@@ -13,8 +13,7 @@ const CartWidget = () => {
             <FontAwesomeIcon icon={faShoppingCart} />
 
             {totalItems
-                ? <div className='cartshopNumber'>{items.length}</div>
-                : null
+                && <div className='cartshopNumber'>{items.length}</div>
             }
         </div>
     )
